@@ -15,6 +15,13 @@ app2.get("/",(req,res) =>{
     // res.setHeader("Access-Control-Allow-Origin","*")
     
     // 2、jsonp
+    // 获取 http://localhost:91?callback=f 请求的callback参数
+    // 返回 f('你好')
+    // 因为请求页面已经先定义好了f(data)函数
+    //  function f(data) {
+    //     alert(data)
+    // }
+    // 返回后相当于直接调用了该函数
     var funcname = req.query.callback
     res.send(funcname + "('你好')")
 
